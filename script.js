@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const comments = commentsInput.value.trim();
 
         // Número de Coordinador de IO que recibe la encuesta
-        const waNumber = '573023907622';
+        const waNumber = '573127251644';
 
         // Construir Mensaje de WhatsApp
         let text = `🌴 *INTERÉS: EXCURSIÓN SAN ANDRÉS* 🌴%0A%0A`;
