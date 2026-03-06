@@ -40,34 +40,36 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
         const commentsInput = document.getElementById('comments');
 
         // Obtener el radio button seleccionado
         const dateInput = document.querySelector('input[name="dateOption"]:checked');
 
-        if (!nameInput.value || !dateInput) {
-            alert('Por favor completa tu nombre y elige una fecha.');
+        if (!nameInput.value || !phoneInput.value || !dateInput) {
+            alert('Por favor completa tu nombre, número de WhatsApp y elige un mes.');
             return;
         }
 
         const name = nameInput.value.trim();
+        const phone = phoneInput.value.trim();
         const selectedDate = dateInput.value;
         const comments = commentsInput.value.trim();
 
-        // Número de Coordinador de IO (El colaborador que lanza la encuesta)
-        // REEMPLAZAR AQUÍ (Código de área + número, sin +, ni espacios)
+        // Número de Coordinador de IO que recibe la encuesta
         const waNumber = '573023907622';
 
         // Construir Mensaje de WhatsApp
-        let text = `🌴 *VOTO: EXCURSIÓN SAN ANDRÉS* 🌴%0A%0A`;
-        text += `👤 *Colaborador:* ${name}%0A`;
-        text += `🗓️ *Fecha Elegida:* ${selectedDate}%0A`;
+        let text = `🌴 *INTERÉS: EXCURSIÓN SAN ANDRÉS* 🌴%0A%0A`;
+        text += `👤 *Nombre:* ${name}%0A`;
+        text += `📱 *WhatsApp:* ${phone}%0A`;
+        text += `🗓️ *Mes Elegido:* ${selectedDate}%0A`;
 
         if (comments) {
-            text += `💬 *Comentarios Adicionales:* ${comments}%0A`;
+            text += `💬 *Comentarios:* ${comments}%0A`;
         }
 
-        text += `%0A_¡Contando los días para ver el Mar de los 7 Colores!_ ✈️😎`;
+        text += `%0A_¡Listo para conocer el Mar de los 7 Colores!_ ✈️😎`;
 
         // Crear la URL
         const waURL = `https://wa.me/${waNumber}?text=${text}`;
